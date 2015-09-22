@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace eRestaurantSystem.Entities
 {
-    class Table
+    public class Table
     {
         [Key]
         public int TableID { get; set; }
