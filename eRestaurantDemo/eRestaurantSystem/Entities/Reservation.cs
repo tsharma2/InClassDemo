@@ -26,9 +26,9 @@ namespace eRestaurantSystem.Entities
         public virtual SpecialEvent Event { get; set; }
 
         //The reservation table is a many to many relationship to Tables table
-        // the sql ReservationTable resolves this problem 
-        //However Reservationtable holds only a compound primary key
-        // we will not create a reservationtable entity in our project but 
+        // The sql Reservation table resolves this problem 
+        //However Reservation table holds only a compound primary key
+        // we will not create a reservation table entity in our project but 
         //handle it via navigation mapping
         // Therefor we will place an Icollection properties in this entity
         //refering to the Tables table.
