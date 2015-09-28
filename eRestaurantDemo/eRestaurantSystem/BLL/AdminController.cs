@@ -25,9 +25,32 @@ namespace eRestaurantSystem.BLL
                 //call SpecialEvemts (done by mapping)
  
                 //Method syntax
-                return context.SpecialEvents.OrderBy(x => x.Description).ToList();
+                //return context.SpecialEvents.OrderBy(x => x.Description).ToList();
 
+                //Query syntax
+                var results = from item in context.SpecialEvents
+                              orderby item.Description
+                              select item;
+
+                return results.ToList();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<Reservation> GetReservationByEventCode(string eventcode)
+        {
+            using (var context = new eRestaurantContext())
+            {
+                //Query syntax
+                var results = from item in context.Reservations
+                              where item.EventCode.Equals(eventcode)
+                              orderby item.CustomerName, item.ReservationDate
+                              select item;
+
+                return results.ToList();
             }
         }
     }
+
+
 }
